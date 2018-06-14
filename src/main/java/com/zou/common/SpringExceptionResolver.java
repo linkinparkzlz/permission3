@@ -1,6 +1,7 @@
 package com.zou.common;
 
 
+import com.zou.exception.ParamException;
 import com.zou.exception.PermissionException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ public class SpringExceptionResolver implements HandlerExceptionResolver {
         if (url.endsWith(".json")) {
 
 
-            if (ex instanceof PermissionException) {
+            if (ex instanceof PermissionException || ex instanceof ParamException) {
 
 
                 logger.info("unknow exception: " + url, ex);
